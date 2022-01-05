@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <!-- Example based on http://bl.ocks.org/mbostock/3887118 -->
+  <!-- Tooltip example from http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html -->
+  <body>
+    <p class="p12" id="predicted_words"></p>
+    <p class="p13" id="frequent_words"></p>
+    <div class="plot-area">
+      <div class="plot-container">
+      </div>
+      <div class="side-table">
+      </div>
+      <div class="tooltip">
+      </div>
+      <div class="filters-and-options">
+        <p class="zoomxy"></p>
+        <div class="options">
+          <div class="option-container">
+            <div class="option-title">Color</div>
+            <div class="color-by-feature-container"></div>
+            <div class="toggle-container">
+              <div class="spectrum-option color-option">
+                <b>Enable Spectrum</b>
+                <div class="toggle">
+                  <input type="checkbox" class="check spectrum-checkbox">
+                  <b class="switch"></b>
+                  <b class="track"></b>
+                </div>
+              </div>
+              <div class="log-option color-option">
+                <b>Enable Log Scale</b>
+                <div class="toggle">
+                  <input type="checkbox" class="check log-spectrum-checkbox">
+                  <b class="switch"></b>
+                  <b class="track"></b>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="option-container">
+            <div class="option-title">Shape by Feature</div>
+            <div class="shape-by-feature-container"></div>
+          </div>
+
+          <div class="option-container">
+            <div class="option-title">Zoom</div>
+            <div class="toggle-container">
+              <p class="zoom-toggle-label">Enable</p>
+              <div class="toggle">
+                <input type="checkbox" class="check enable-zoom">
+                <b class="switch"></b>
+                <b class="track"></b>
+              </div>
+            </div>
+            <input type="submit" class="zoom-button" value="Zoom">
+          </div>
+
+          <div class="option-container">
+            <div class="option-title">Click on Feature</div>
+            <div class="click-on-feature-container"></div>
+          </div>
+
+          <div class="option-container">
+            <div class="option-title">Search by Feature</div>
+            <div class="search-by-feature-container"></div>
+            <div class="search-toggle-and-submit">
+              <div class="exact-match">
+                <p class="search-toggle-label">Exact match:</p>
+                <!-- https://codepen.io/daneden/pen/JFxAw -->
+                <div class="toggle">
+                  <input type="checkbox" class="check search-exact-match">
+                  <b class="switch"></b>
+                  <b class="track"></b>
+                </div>
+              </div>
+              <form name="myform" class="search-form">
+                <input type="text" class='search-text' id="searchText" placeholder="Search text">
+                <input class='search-button' name="Submit"  type="submit" value="Apply" >
+              </form>
+            </div>
+          </div>
+
+          <div class="option-container">
+            <div class="option-title">Transparency by Feature</div>
+            <div class="transparency-by-feature-container"></div>
+            <div class="transparency-toggle-and-submit">
+              <div class="exact-match">
+                <p class="transparency-toggle-label">Exact match:</p>
+                <!-- https://codepen.io/daneden/pen/JFxAw -->
+                <div class="toggle">
+                  <input type="checkbox" class="check transparency-exact-match">
+                  <b class="switch"></b>
+                  <b class="track"></b>
+                </div>
+              </div>
+              <form class="transparency-form-container">
+                <p>Enter attribute value, and opacity values b/w 0 and 1:</p>
+                <input type="text" class='transparency-search-text' id="transpText" placeholder="Match attri. val">
+                <input type="text" class='opacity-value-search-match' id="opacityMatch" placeholder="Opacity (match)">
+                <input type="text" class='opacity-value-search-no-match' id="opacityNoMatch" placeholder="Opacity (no match)">
+                <input class='transparent-search-button' name="Submit"  type="submit" value="Apply">
+              </form>
+            </div>
+          </div>
+
+          <div class="option-container">
+            <div class="option-title">Filter by Value</div>
+            <div class="filter-by-value-options hidden">
+              <div class="filter-by-value-container">
+                <label>Feature to filter on:</label>
+              </div>
+              <div class="live-update">
+                <p class="live-update-toggle-label">Live update</p>
+                <!-- https://codepen.io/daneden/pen/JFxAw -->
+                <div class="toggle">
+                  <input type="checkbox" class="check live-update-toggled">
+                  <b class="switch"></b>
+                  <b class="track"></b>
+                </div>
+              </div>
+            </div>
+            <div class="filter-button-container hidden">
+              <input type="submit" class="filter-button hidden" value="Filter">
+            </div>
+            <div class="sliders"></div>
+            <p class="unsupported-dataset-message">
+              The dataset you are exploring only contains categorical data and therefore cannot use this feature.
+            </p>
+          </div>
+
+          <div class="option-container">
+            <div class="option-title">Reset Plot</div>
+            <input type="submit" class="reset-button" value="Reset">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- These javascript modules are used to draw the interactive plot  -->
+    <script src="vendor/crossfilter.min.js"></script>
+    <!-- Math script needs to be added to repo -->
+    <!-- <script src="math.min.js"></script> -->
+    <script src="dist/bundle.js"></script>
+  </body>
+</html>
